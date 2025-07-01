@@ -83,7 +83,7 @@ dependencies = [
     "torchdata",
     "transformers",
     "wandb",
-
+    "nemo-run==0.4.0",
 ]
 
 [project.optional-dependencies]

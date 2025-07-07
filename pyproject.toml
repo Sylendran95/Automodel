@@ -122,6 +122,7 @@ docs = [
 build = []
 test = ["coverage", "pytest"]
 nvfsdp = ["nvfsdp"]
+core = ["core"]
 
 [tool.uv]
 default-groups = ["docs", "test", "nvfsdp", "core"]

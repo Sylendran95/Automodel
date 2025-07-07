@@ -20,20 +20,16 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 
-[tool.setuptools]
-include-package-data = true
+[tool.setuptools.package-dir]
+"" = "."
+"nemo_automodel" = "nemo_automodel"
+"nemo_automodel.recipes" = "recipes"
 
-[tool.setuptools.packages.find]
-include = ["nemo_automodel", "nemo_automodel.*"]
 
 [tool.setuptools.dynamic]
 version = { attr = "nemo_automodel.package_info.__version__" } # any module attribute compatible with ast.literal_eval
 readme = { file = "README.md", content-type = "text/markdown" }
 
-# less ideal and potentially fragile.
-[tool.setuptools.data-files]
-"nemo_automodel/recipes/llm" = ["recipes/llm/*.py", "recipes/llm/*.yaml"]
-"nemo_automodel/recipes/vlm" = ["recipes/vlm/*.py", "recipes/vlm/*.yaml"]
 
 [project]
 description = "NeMo Automodel - Provides Day-0 support for any Hugging Face model leveraging PyTorch native functionalities while providing performance and memory optimized training and inference recipes."

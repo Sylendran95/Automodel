@@ -18,7 +18,6 @@ import yaml
 import os
 from pathlib import Path
 import importlib.util
-from torch.distributed.run import determine_local_world_size, get_args_parser, run as thrun
 
 # Here we assume the following directory structure and expect it to remain unchanged.
 #
@@ -208,6 +207,7 @@ def main():
         # launch job on kubernetes.
         raise NotImplementedError("WIP")
     else:
+        from torch.distributed.run import determine_local_world_size, get_args_parser, run as thrun
         # launch job on this node
         num_devices = determine_local_world_size(nproc_per_node="gpu")
         assert num_devices > 0, "Expected num-devices to be > 0"
